@@ -31,19 +31,22 @@ At this point, you should see `(venv)` in front of your terminal input.
 ###### (If you need to exit the virtual env, you can use the command `deactivate`. You don't need to right now though!)
 
 ### 3. Install dependencies
-Enter the following commands in your terminal, one at a time. For the ones starting with a `!`, hit enter again after it expands:
+Enter the following command to install all necessary packages:
 ```bash
-!pip install langchain
-!pip install requests
-pip install flask
-pip install faiss-cpu
-pip install sentence-transformers
-pip install twilio
-pip install load_dotenv
-pip install pdfminer-six
-pip install unstructured
-pip install pdf2image
+pip install -r packages.txt
 ```
+This will install the following packages in `packages.txt`:
+>langchain
+>requests
+>flask
+>faiss-cpu
+>sentence-transformers
+>twilio
+>load_dotenv
+>pdfminer-six
+>unstructured
+>pdf2image
+
 
 ### 4. Get a HuggingFace token
 If you haven't yet signed up for Hugging Face Hub yet, you can do that [here](https://huggingface.co/join?next=%2Fsettings%2Ftokens).
