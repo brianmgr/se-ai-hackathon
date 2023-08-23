@@ -31,7 +31,7 @@ At this point, you should see `(venv)` in front of your terminal input.
 ###### (If you need to exit the virtual env, you can use the command `deactivate`. You don't need to right now though!)
 
 ### 3. Install dependencies
-Enter the following commands in your terminal, one at a time:
+Enter the following commands in your terminal, one at a time. For the ones starting with a `!`, hit enter again after it expands:
 ```bash
 !pip install langchain
 !pip install requests
@@ -40,6 +40,7 @@ pip install faiss-cpu
 pip install sentence-transformers
 pip install twilio
 pip install load_dotenv
+pip install pdfminer-six
 ```
 
 ### 4. Get a HuggingFace token
