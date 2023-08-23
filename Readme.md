@@ -46,6 +46,7 @@ This will install the following packages in `packages.txt`:
 >pdfminer-six
 >unstructured
 >pdf2image
+>pypdf
 
 
 ### 4. Get a HuggingFace token
@@ -113,7 +114,7 @@ ___
 ### Clean it up, change it, ditch it!
 
 There are some parts of the code that could be refined to make the code more efficient, such as:
-1. [Not pulling the CTIA PDF every single time.](/app.py?#L43)
+1. [Getting timeout errors? Try loading the PDF only once on app load.](/app.py?#L101)
 2. [Changing the temperature of the LLM to be less deterministic.](/app.py?#L67)
 3. [Change the LLM altogether.](/app.py?#L67)
 
