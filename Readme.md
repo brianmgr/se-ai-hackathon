@@ -115,8 +115,8 @@ ___
 
 There are some parts of the code that could be refined to make the code more efficient, such as:
 1. [Getting timeout errors? Try loading the PDF only once on app load.](/app.py?#L101)
-2. [Changing the temperature of the LLM to be less deterministic.](/app.py?#L67)
-3. [Change the LLM altogether.](/app.py?#L67)
+2. [Changing the temperature of the LLM to be less deterministic.](/app.py?#L75)
+3. [Change the LLM altogether.](/app.py?#L75)
 
 Feel free to build something without using this codebase at all. Make something wild and win that moolah!
 
