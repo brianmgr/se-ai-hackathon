@@ -41,6 +41,8 @@ pip install sentence-transformers
 pip install twilio
 pip install load_dotenv
 pip install pdfminer-six
+pip install unstructured
+pip install pdf2image
 ```
 
 ### 4. Get a HuggingFace token
