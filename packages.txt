@@ -8,3 +8,4 @@ load_dotenv
 pdfminer-six
 unstructured
 pdf2image
+pypdf
