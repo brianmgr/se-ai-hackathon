@@ -1,0 +1,10 @@
+langchain
+requests
+flask
+faiss-cpu
+sentence-transformers
+twilio
+load_dotenv
+pdfminer-six
+unstructured
+pdf2image
