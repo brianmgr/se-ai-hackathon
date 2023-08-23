@@ -106,7 +106,7 @@ eg: https://00b00e0d000b.ngrok.app/sms
 ```
 
 ### 10. Test with SMS
-Text your Twilio number with a question about CTIA guidelines. Remember- generative AI can be slow, so if you're not seeing an error, give it 10-30 seconds to get a response before hitting `ctrl+c` to debug.
+Text your Twilio number with a question about CTIA guidelines. Remember- generative AI can be a little slow, so give it 15 seconds to get a response before hitting `ctrl+c` to debug. FYI: Twilio webhooks have a maximum `Total time (tt)` timeout of 15 seconds, [more info here](https://www.twilio.com/docs/usage/webhooks/webhooks-connection-overrides), so you'll need to keep your response times below this.
 ___
 
 ## What next?
