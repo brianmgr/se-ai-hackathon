@@ -18,8 +18,9 @@ else:
     ssl._create_default_https_context = _create_unverified_https_context
 nltk.download('punkt', quiet=True)
 
-# from langchain.document_loaders import TextLoader 
-from langchain.document_loaders import OnlinePDFLoader
+# from langchain.document_loaders import TextLoader # use this with the loadPDFFromURL function
+# from langchain.document_loaders import OnlinePDFLoader # use this with the loadPDFFromURL function
+from langchain.document_loaders import PyPDFLoader
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.vectorstores import FAISS
@@ -40,8 +41,15 @@ from twilio.twiml.messaging_response import MessagingResponse
 #     txt_file_as_loaded_docs = loader.load()
 #     return txt_file_as_loaded_docs
 
-def loadPDFFromURL(pdf_doc):
-    loader = OnlinePDFLoader(pdf_doc)
+# No longer used- was taking WAY too long to download the PDF every time
+# def loadPDFFromURL(pdf_doc):
+#     loader = OnlinePDFLoader(pdf_doc)
+#     pdf_file_as_loaded_docs = loader.load()
+#     return pdf_file_as_loaded_docs
+
+def loadPDFFromFile():
+    loader = PyPDFLoader("ctia_short_code_monitoring_handbook_-_v1.8.pdf")
+    # pages = loader.load_and_split()
     pdf_file_as_loaded_docs = loader.load()
     return pdf_file_as_loaded_docs
 
@@ -74,8 +82,9 @@ app = Flask(__name__)
 def local():
     inb_msg = request.form['Body'].lower().strip()
     chain = loadLLM()
-    #LOCAL_ldocs = loadFileFromURL('https://raw.githubusercontent.com/elizabethsiegle/qanda-langchain-sms-lougehrig/main/lougehrig.txt')
-    LOCAL_ldocs = loadPDFFromURL('https://www.10dlc.org/ctia_short_code_monitoring_handbook_-_v1.8.pdf')
+    # LOCAL_ldocs = loadFileFromURL('https://raw.githubusercontent.com/elizabethsiegle/qanda-langchain-sms-lougehrig/main/lougehrig.txt')
+    # LOCAL_ldocs = loadPDFFromURL('https://www.10dlc.org/ctia_short_code_monitoring_handbook_-_v1.8.pdf')
+    LOCAL_ldocs = loadPDFFromFile()
     LOCAL_cdocs = splitDoc(LOCAL_ldocs) #chunked
     LOCAL_vector_store = makeEmbeddings(LOCAL_cdocs)
     LOCAL_resp = askQs(LOCAL_vector_store, chain, inb_msg)
@@ -87,8 +96,9 @@ def sms():
     resp = MessagingResponse()
     inb_msg = request.form['Body'].lower().strip()
     chain = loadLLM()
-    #LOCAL_ldocs = loadFileFromURL('https://raw.githubusercontent.com/elizabethsiegle/qanda-langchain-sms-lougehrig/main/lougehrig.txt')
-    LOCAL_ldocs = loadPDFFromURL('https://www.10dlc.org/ctia_short_code_monitoring_handbook_-_v1.8.pdf')
+    # LOCAL_ldocs = loadFileFromURL('https://raw.githubusercontent.com/elizabethsiegle/qanda-langchain-sms-lougehrig/main/lougehrig.txt')
+    # LOCAL_ldocs = loadPDFFromURL('https://www.10dlc.org/ctia_short_code_monitoring_handbook_-_v1.8.pdf')
+    LOCAL_ldocs = loadPDFFromFile()
     LOCAL_cdocs = splitDoc(LOCAL_ldocs) #chunked
     LOCAL_vector_store = makeEmbeddings(LOCAL_cdocs)
     LOCAL_resp = askQs(LOCAL_vector_store, chain, inb_msg)
