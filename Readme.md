@@ -48,6 +48,11 @@ This will install the following packages in `packages.txt`:
 >pdf2image
 >pypdf
 
+If you get any errors that looks like this the following, you'll want to update pip with `pip install --upgrade pip`:
+```bash
+ERROR: Could not find a version that satisfies the requirement torch>=1.6.0 (from sentence-transformers->-r packages.txt (line 5)) (from versions: none)
+ERROR: No matching distribution found for torch>=1.6.0 (from sentence-transformers->-r packages.txt (line 5))
+```
 
 ### 4. Get a HuggingFace token
 If you haven't yet signed up for Hugging Face Hub yet, you can do that [here](https://huggingface.co/join?next=%2Fsettings%2Ftokens).
