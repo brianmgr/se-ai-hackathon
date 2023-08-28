@@ -82,7 +82,7 @@ Press CTRL+C to quit
 ```
 
 ### 7. Test it locally
-There is a local endpoint you can hit (cleverly located at `/local`) before we start looping in SMS or other channels. Let's try hitting that with `curl` in another terminal tab:
+Open a new terminal tab with `cmd+t`. There is a local endpoint you can hit (cleverly located at `/local`) before we start looping in SMS or other channels. Let's try it now:
 ```bash
 curl -X POST "http://127.0.0.1:8001/local" --data-urlencode "Body=What are the 6 best practices when sending compliant SMS?"
 ```
